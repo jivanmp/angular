@@ -1,0 +1,5 @@
+.usuario-datos {display: flex; flex-wrap: wrap; margin: 10px 0;}
+.item {align-self: center; }
+.usuario-nombre {font-size: 20px; font-weight: 600;}
+.avatar { width: 100px; height: 100px; margin-right: 10px;}
+.avatar img { width: 100%;}
