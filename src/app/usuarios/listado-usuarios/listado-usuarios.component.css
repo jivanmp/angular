@@ -1,11 +1,8 @@
-.usuarios-listado{ display: flex; flex-direction: row;}
+.usuarios-listado{ display: flex; flex-direction: row; margin: 10px;}
 .usuario-datos {display: flex; flex-wrap: wrap; margin: 10px 0;}
 .usuario-info {display: flex; flex-direction: row; flex-wrap: wrap;}
 .usuario-nombre {font-size: 20px; font-weight: 600;}
-.avatar { width: 50px; height: 50px;}
+.avatar { width: 60px; height: 60px; margin-right: 10px;}
 .avatar img { width: 100%;}
 .buttons { flex: 0 0 100%;}
-.button-delete { background-color: darkred; color: #fff}
-.button-detail { background-color: coral; color: #fff}
-.button-add { background-color: greenyellow; color: #fff;}
-.button-update { background-color: deeppink; color: #fff;}
+.usuarios-listado .btn {padding: 2px 5px;}

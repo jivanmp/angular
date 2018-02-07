@@ -6,7 +6,7 @@
         <img class="avatar" src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" />
       </div>
       <div class="usuario-info">
-        <div class="usuario-nombre">{{ usuario.id }}, Nombre: {{ usuario.first_name }}</div>
+        <div class="usuario-nombre">{{ '{' + usuario.id + '}' }} Nombre: {{ usuario.first_name }}</div>
 
         <div class="buttons">
           <a class="btn btn-primary" href="/usuarios/{{ usuario.id }}">Detalles</a>

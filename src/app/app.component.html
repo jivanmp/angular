@@ -1,11 +1,19 @@
 <div class="container">
-  <div style="text-align:center">
-    <h1>Tabajo Final Angular</h1>
-  </div>
-  <app-navbar></app-navbar>
-  <router-outlet>
-    <div class="alert alert-primary" role="alert">
-      Ejercicio para el trabajo final de la Practica de Angular
+  <div class="row">
+    <div class="col-sm">
+      <div style="text-align:center">
+        <h1>Tabajo Final Angular</h1>
+      </div>
     </div>
-  </router-outlet>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
