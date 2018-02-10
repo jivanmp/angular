@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
 ## Required External Libraries
-ngx-bootstrap (`https://www.npmjs.com/package/ngx-bootstrap`)
+ngx-bootstrap (`https://www.npmjs.com/package/ngx-bootstrap`)<br />
     npm install ngx-bootstrap --save
-
-ngx-order-pipe (`https://github.com/VadimDez/ngx-order-pipe`)
+<br /><br />
+ngx-order-pipe (`https://github.com/VadimDez/ngx-order-pipe`)<br />
     npm install  ngx-order-pipe --save
 
 
