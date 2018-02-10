@@ -1,10 +1,12 @@
-<div class="usuario-datos">
-  <div class="avatar item">
-    <img src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" />
-  </div>
-  <div class="usuario-nombre item">
-      <p>Id de Usuario: {{ usuario.id }}</p>
-      <p>Nombre: {{ usuario.first_name }}</p>
-      <p>Apellidos: {{ usuario.last_name }}</p>
+<div class="container">
+  <div class="d-flex flex-row-reverse justify-content-around">
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="{{ usuario.avatar }}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ usuario.first_name }} {{ usuario.last_name }}</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="text-center"><a href="/usuarios/" class="btn btn-primary volver">Volver al Listado</a></div>
+      </div>
+    </div>
   </div>
 </div>

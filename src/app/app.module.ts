@@ -11,6 +11,7 @@ import { ClusterService } from './services/cluster.service';
 import { NavbarComponent } from './navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderModule } from 'ngx-order-pipe';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
@@ -18,7 +19,8 @@ import { OrderModule } from 'ngx-order-pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

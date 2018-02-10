@@ -27,7 +27,8 @@ export class ListadoUsuariosComponent implements OnInit {
   ) {
     this.usuario = {
       'nombre': '',
-      'trabajo': ''
+      'apellidos': '',
+      'avatar': ''
   };
   }
 
@@ -48,10 +49,10 @@ export class ListadoUsuariosComponent implements OnInit {
 
   addUser(datos) {
     let cluster: Cluster = {
-      id: '';
-      first_name: this.usuario.nombre;
-      last_name: this.usuario.apellidos;
-      avatar: this.usuario.avatar;
+      id: '',
+      first_name: this.usuario.nombre,
+      last_name: this.usuario.apellidos,
+      avatar: this.usuario.avatar
     };
 
     this.clusterService.addCluster(cluster).subscribe(

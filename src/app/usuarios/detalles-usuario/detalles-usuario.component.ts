@@ -21,7 +21,7 @@ export class DetallesUsuarioComponent implements OnInit {
     this.getUsuario();
   }
 
-  idUsuario(){
+  idUsuario() {
     this.route.params
       .subscribe(params => {
         this.idUser = this.route.snapshot.params['id'];

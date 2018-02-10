@@ -1,43 +1,53 @@
-<div>
-  <button type="button" class="btn btn-info" (click)="openModal(template)">Añadir Usuario</button>
-  <div>
-    <table class="listado-usuarios">
-      <thead>
-        <tr>
-          <th>Avatar</th>
-          <th [class.active]="order === 'id'"
-              (click)="setOrder('id')"
-          >
-            ID <span [hidden]="reverse">▼</span
-            ><span [hidden]="!reverse">▲</span>
-          </th>
-          <th [class.active]="order === 'first_name'"
-              (click)="setOrder('first_name')"
-              class="mdl-data-table__cell--non-numeric"
-          >
-            Nombre <span [hidden]="reverse">▼</span
-            ><span [hidden]="!reverse">▲</span>
-          </th>
-          <th [class.active]="order === 'last_name'"
-              (click)="setOrder('last_name')"
-              class="mdl-data-table__cell--non-numeric"
-          >
-            Apellido <span [hidden]="reverse">▼</span>
-            <span [hidden]="!reverse">▲</span>
-          </th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="datos-usuario" *ngFor="let usuario of usuarios | orderBy: order : reverse : 'case-insensitive'">
-          <td class="avatar"><img class="avatar" src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" /></td>
-          <td class="id">{{ usuario.id }}</td>
-          <td class="nombre">{{ usuario.first_name }}</td>
-          <td class="apellido">{{ usuario.last_name }}</td>
-          <td><a class="btn btn-primary detalles" href="/usuarios/{{ usuario.id }}">Detalles</a></td>
-        </tr>
-        </tbody>
-      </table>
+<div class="container">
+  <div class="d-flex flex-row-reverse justify-content-around">
+    <div class="p-2 text-right">
+      <button type="button" class="btn btn-info" (click)="openModal(template)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Añadir Usuario
+      </button>
+    </div>
+    <div class="p-2">
+      <table class="listado-usuarios">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th [class.active]="order === 'id'"
+                (click)="setOrder('id')"
+                class="pointer" title="Ordenar por Id"
+            >
+              ID <span [hidden]="reverse">▼</span
+              ><span [hidden]="!reverse">▲</span>
+            </th>
+            <th [class.active]="order === 'first_name'"
+                (click)="setOrder('first_name')"
+                class="mdl-data-table__cell--non-numeric pointer"
+                title="Ordenar por Nombre"
+            >
+              Nombre <span [hidden]="reverse">▼</span
+              ><span [hidden]="!reverse">▲</span>
+            </th>
+            <th [class.active]="order === 'last_name'"
+                (click)="setOrder('last_name')"
+                class="mdl-data-table__cell--non-numeric pointer"
+                title="Ordenar por Apellidos"
+            >
+              Apellido <span [hidden]="reverse">▼</span>
+              <span [hidden]="!reverse">▲</span>
+            </th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="datos-usuario" *ngFor="let usuario of usuarios | orderBy: order : reverse : 'case-insensitive'">
+            <td class="avatar"><img class="avatar" src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" /></td>
+            <td class="id">{{ usuario.id }}</td>
+            <td class="nombre">{{ usuario.first_name }}</td>
+            <td class="apellido">{{ usuario.last_name }}</td>
+            <td><a class="btn btn-primary detalles" href="/usuarios/{{ usuario.id }}" title="Detalles del Usuario">Detalles</a></td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 </div>
 
@@ -65,7 +75,7 @@
           <input type="text" class="form-control" [(ngModel)]="usuario.avatar" name="avatar" required>
         </div>
 
-        <button type="submit" class="btn btn-success" [disabled]="usuarioForm.invalid"> Añadfir Usuario </button>
+        <button type="submit" class="btn btn-success" [disabled]="usuarioForm.invalid"> Añadir Usuario </button>
       </form>
 
       <div class="text-right informacion">El resultado se vera en la consola</div>

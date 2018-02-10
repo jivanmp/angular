@@ -1,5 +1,7 @@
-.listado-usuarios th span { visibility: hidden; }
+.pointer {cursor: pointer;}
+.listado-usuarios thead { border-bottom: 1px solid #000;}
 .listado-usuarios th {padding-right: 20px;}
+.listado-usuarios th span { visibility: hidden; }
 .listado-usuarios th.active { ; color: green;}
 .listado-usuarios th.active span:last-child { color: red}
 .listado-usuarios th.active span {visibility: visible;}
