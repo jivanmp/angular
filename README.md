@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
+## Required External Libraries
+ngx-bootstrap (`https://www.npmjs.com/package/ngx-bootstrap`)
+    npm install ngx-bootstrap --save
+
+ngx-order-pipe (`https://github.com/VadimDez/ngx-order-pipe`)
+    npm install  ngx-order-pipe --save
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
