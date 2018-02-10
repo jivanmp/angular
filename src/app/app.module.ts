@@ -10,6 +10,8 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { ClusterService } from './services/cluster.service';
 import { NavbarComponent } from './navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderModule } from 'ngx-order-pipe';
+
 
 
 
@@ -25,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    OrderModule,
     AppRoutingModule
   ],
   providers: [ClusterService],

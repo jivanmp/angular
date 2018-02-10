@@ -6,10 +6,12 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 export interface Cluster {
-  id: number;
+  id: any;
   first_name: string;
   last_name: string;
   avatar: string;
+  name: string;
+  job: string;
 }
 
 const httpOptions = {
@@ -61,6 +63,6 @@ export class ClusterService {
   }
 
   private log(message: string) {
-
+    
   }
 }

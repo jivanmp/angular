@@ -1,17 +1,43 @@
 <div>
   <button type="button" class="btn btn-info" (click)="openModal(template)">Añadir Usuario</button>
-  <div class="usuarios-listado" *ngFor="let usuario of usuarios">
-    <div class="usuario-datos">
-      <div class="avatar">
-        <img class="avatar" src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" />
-      </div>
-      <div class="usuario-info">
-        <div class="usuario-nombre">{{ '{' + usuario.id + '}' }} Nombre: {{ usuario.first_name }}</div>
-
-        <div class="buttons">
-          <a class="btn btn-primary" href="/usuarios/{{ usuario.id }}">Detalles</a>
-        </div>
-    </div>
+  <div>
+    <table class="listado-usuarios">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th [class.active]="order === 'id'"
+              (click)="setOrder('id')"
+          >
+            ID <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'first_name'"
+              (click)="setOrder('first_name')"
+              class="mdl-data-table__cell--non-numeric"
+          >
+            Nombre <span [hidden]="reverse">▼</span
+            ><span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'last_name'"
+              (click)="setOrder('last_name')"
+              class="mdl-data-table__cell--non-numeric"
+          >
+            Apellido <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="datos-usuario" *ngFor="let usuario of usuarios | orderBy: order : reverse : 'case-insensitive'">
+          <td class="avatar"><img class="avatar" src="{{ usuario.avatar }}" title="{{ usuario.first_name }}" /></td>
+          <td class="id">{{ usuario.id }}</td>
+          <td class="nombre">{{ usuario.first_name }}</td>
+          <td class="apellido">{{ usuario.last_name }}</td>
+          <td><a class="btn btn-primary detalles" href="/usuarios/{{ usuario.id }}">Detalles</a></td>
+        </tr>
+        </tbody>
+      </table>
   </div>
 </div>
 
@@ -23,28 +49,37 @@
     </button>
     </div>
     <div class="modal-body">
-      <form (ngSubmit)="addPost(rForm.value)">
+      <form #usuarioForm="ngForm" (ngSubmit)="addUser(usuarioForm)" novalidate>
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" required>
         </div>
   
         <div class="form-group">
-          <label for="Trabajo">Trabajo</label>
-          <input type="text" class="form-control" required>
+          <label for="Apellidos">Apellidos</label>
+          <input type="text" class="form-control" [(ngModel)]="usuario.apellidos" name="apellidos" required>
         </div>
   
-        <button type="button" class="btn btn-primary" (click)="addUser()"> Añadfir Usuario </button>
+        <div class="form-group">
+          <label for="Avatar">Avatar</label>
+          <input type="text" class="form-control" [(ngModel)]="usuario.avatar" name="avatar" required>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="usuarioForm.invalid"> Añadfir Usuario </button>
       </form>
+
+      <div class="text-right informacion">El resultado se vera en la consola</div>
     </div>
 </ng-template>
 
-<ng-template #forminfo>
-  <div class="form-container">
-    <div class="row columns">
-        <h1>{{ name }}</h1>
-
-        <p>{{ description }}</p>
-    </div>
+<ng-template #addUserInfo>
+  <div class="modal-header">
+      <h4 class="modal-title pull-left">Resultado de POST</h4>
+      <button type="button" class="close pull-right" aria-label="Cerrar" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    {{ postResult }}
   </div>
 </ng-template>

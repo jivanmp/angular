@@ -1,8 +1,16 @@
-.usuarios-listado{ display: flex; flex-direction: row; margin: 10px;}
-.usuario-datos {display: flex; flex-wrap: wrap; margin: 10px 0;}
-.usuario-info {display: flex; flex-direction: row; flex-wrap: wrap;}
-.usuario-nombre {font-size: 20px; font-weight: 600;}
-.avatar { width: 60px; height: 60px; margin-right: 10px;}
+.listado-usuarios th span { visibility: hidden; }
+.listado-usuarios th {padding-right: 20px;}
+.listado-usuarios th.active { ; color: green;}
+.listado-usuarios th.active span:last-child { color: red}
+.listado-usuarios th.active span {visibility: visible;}
+.listado-usuarios td {padding: 5px;}
+.listado-usuarios .datos-usuario:nth-child(even){ background: #CCC }
+.listado-usuarios .nombre { font-size: 20px; font-weight: 600}
+.avatar { width: 60px; height: 60px;}
 .avatar img { width: 100%;}
-.buttons { flex: 0 0 100%;}
-.usuarios-listado .btn {padding: 2px 5px;}
+.listado-usuarios .detalles {padding: 2px; font-size: 10px;}
+.informacion { font-size: 10px; color: red;}
+.btn-success.disabled,
+.btn-success:disabled{
+    background-color: red;
+}

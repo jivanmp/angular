@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cluster, ClusterService } from '../../services/cluster.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @Component({
@@ -12,24 +12,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./listado-usuarios.component.css']
 })
 export class ListadoUsuariosComponent implements OnInit {
-  usuarios;
+  public usuarios;
+  public usuario: any;
   public modalRef: BsModalRef;
+  public postResult = '';
 
-  rForm: FormGroup;
-  post: any;
-  nombre = '';
-  trabajo = '';
+  order = 'first_name';
+  reverse = false;
 
   constructor(
     private clusterService: ClusterService,
     private modalService: BsModalService,
     private fb: FormBuilder
   ) {
-    this.rForm = fb.group({
-      'nombre' : [null, Validators.required],
-      'trabajo' : [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
-      'validate' : ''
-    });
+    this.usuario = {
+      'nombre': '',
+      'trabajo': ''
+  };
   }
 
   ngOnInit() {
@@ -44,26 +43,31 @@ export class ListadoUsuariosComponent implements OnInit {
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template); // {3}
+    this.modalRef = this.modalService.show(template);
   }
 
-  addUser() {
-    console.log('siiii');
-
-    this.trabajo = this.post.trabajo;
-    this.nombre = this.post.nombre;
-
-    /*
+  addUser(datos) {
     let cluster: Cluster = {
-      name: 'Perico',
-      job: 'Trabajo de perico'
+      id: '';
+      first_name: this.usuario.nombre;
+      last_name: this.usuario.apellidos;
+      avatar: this.usuario.avatar;
     };
+
     this.clusterService.addCluster(cluster).subscribe(
       (data:any) => {
         console.log(data);
+        this.modalRef.hide();
+        datos.reset();
       }
     )
-    */
   }
 
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
+  }
 }
